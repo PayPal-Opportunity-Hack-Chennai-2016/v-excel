@@ -1,0 +1,7 @@
+venv
+*.pyc
+staticfiles
+.idea/
+.autoenv.zsh
+.autoenv_leave.zsh
+node_modules/
