@@ -116,86 +116,16 @@
 				<table class="table solsoTable dataTable no-footer" data-alert="1" id="DataTables_Table_4" role="grid" aria-describedby="DataTables_Table_4_info">
 	<thead>
 		<tr role="row">
-			<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Crt.: activate to sort column descending" style="width: 28px;">Crt.</th>
 			<th class="col-md-1 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Invoice: activate to sort column ascending" style="width: 67px;">Invoice</th>
-			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">Customer</th>
-			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">Product</th>
-			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">Quantity</th>
-			<th class="col-md-1 text-right sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;">Amount</th>
-			<th class="col-md-1 text-right sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="paid: activate to sort column ascending" style="width: 55px;">paid</th>
-			<th class="col-md-1 text-right sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Balance: activate to sort column ascending" style="width: 72px;">Balance</th>
-			<th class="col-md-1 text-center sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Due date: activate to sort column ascending" style="width: 57px;">Due date</th>
-			<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 60px;">Status</th>
-			<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="State: activate to sort column ascending" style="width: 46px;">State</th>
-			<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 74px;">Action</th>
-			<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 84px;">Action</th></tr>
-	</thead>
+			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">Customer Name</th>
+			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">Address</th>
+			<th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 107px;">phone Number</th>
+			<th class="col-md-1 text-right sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;">Email</th>
+			<th class="col-md-1 text-right sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="paid: activate to sort column ascending" style="width: 55px;">Amount</th>
+			
 
 	<tbody>
-			
-		
-		
-	<tr role="row" class="odd">
-			<td class="sorting_1">
-				1
-			</td>
-
-			<td>
-				1
-			</td>
-
-			<td>
-									Baane Mini Imports
-					
-			</td>	
-			<td>
-				Shirt
-			</td>
-
-			<td>5</td>
-
-			<td class="text-right">
-				 110.00
-			</td>	
-			
-			<td class="text-right">
-				 0.00
-			</td>						
-			
-			<td class="text-right">
-				
-				
-									- 110
-								
-				
-			</td>			
-			
-			<td class="text-center">
-				2016-02-19
-			</td>	
-
-			<td>
-				<label class="label label-unpaid">
-					unpaid
-				</label>
-			</td>						
-			
-			<td>
-									<label class="label label-paid">seen</label>
-							</td>			
-							<td>		
-					<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="http://solutiisoft.com/inventory-system/invoice/1/edit" data-modal-title="Show invoice">
-						<i class="fa fa-edit"></i> Edit
-					</button>
-				</td>
-
-				<td>		
-					<button type="button" class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" data-href="http://solutiisoft.com/inventory-system/invoice/1">
-						<i class="fa fa-trash"></i> Delete
-					</button>		
-				</td>
-			
-		</tr></tbody>
+	</tbody>
 </table></div></div>
 </div>	</div>	
 	</div>
@@ -477,8 +407,67 @@
 			window.myBar = new Chart(ctx).Bar(barChartEstimatesInvoices2, {
 				responsive: true
 			});		
-		}			
+		}
+
+		getOrders();
+		
 	}	
+	
+	function getOrders(){
+	var customerListUrl = "https://v-excel-inventory.herokuapp.com/api/orders/";
+				
+				$.ajax({
+					url : customerListUrl,
+					type : 'get',
+					dataType : 'json',
+					success : function(data) {
+						loadCustomerDetail(data);
+					}
+				});
+}
+	
+	function loadCustomerDetail(data){
+				
+				for (var i = 0; i < data.length; i++) {
+							var tableRow = getTableRow2(data[i].customer, data[i].amount);
+						$('#DataTables_Table_4 tbody').append(tableRow);
+						$('.dataTables_empty').hide();						
+				}
+				//var customerListUrl = "https://v-excel-inventory.herokuapp.com/api/customers/";
+				
+				/*$.ajax({
+					url : customerListUrl,
+					type : 'get',
+					dataType : 'json',
+					success : function(data) {
+						var rows = "";
+						for (var i = 0; i < data.length; i++) {
+							var tableRow = getTableRow(data[i].customer, data[i].amount);
+							console.log(tableRow);
+							
+							
+						}
+						//$("#client_id").append(rows);
+					}
+				});*/
+		}
+		
+		
+	function getTableRow2(data, amount) {
+		var id = data.id;
+		var name = data.name;
+		var address = data.address;
+		var email = data.email_id;
+		var phone = data.phone_number;
+		var row = getTableCol2(id) + getTableCol2(name) + getTableCol2(address)
+				+ getTableCol2(phone) + getTableCol2(email) + getTableCol2(amount)
+				;
+		return "<tr>" + row + "</tr>";
+	}
+	function getTableCol2(data) {
+		return "<td>" + data + "</td>";
+	}
+		
 	</script>
 	<!-- END CHART.JS -->
 	
@@ -893,68 +882,5 @@
 		});		
 		/* === END ELEMENTS ===  */
 		</script>
-<script type="text/javascript">
-	//var invoiceListUrl = "https://v-excel-inventory.herokuapp.com/api/invoice";
-	var invoiceListUrl = "invoice_lau.json"
-
-	$.ajax({
-		url : invoiceListUrl,
-		type : 'get',
-		dataType : 'json',
-		success : function(data) {
-			populateInvoiceTable(data);
-		}
-	});
-	function populateInvoiceTable(data) {
-		var tableId = "DataTables_Table_4";
-		var rows = "";
-		for (var i = 0; i < data.length; i++) {
-			rows += getTableRow(data[i],i);
-		}
-		$("#" + tableId).append(rows);
-	}
-	function getTableRow(data,i) {
-		var crt = i;
-		var id = data.invoice_id;
-		var customerName = data.customer;
-		var product = data.product;
-		var quantity = data.Quantity;
-		var amount = data.Amount;
-		var paid = data.paid;
-		var balance = parseInt(data.amount) - parseInt(data.paid);
-		var dueDate = data.due_date;
-	
-		
-		var row = getTableCol(crt) + getTableCol(id) +getTableCol(customerName) + getTableCol(product)
-				+ getTableCol(quantity) + getTableCol(amount) + getTableCol(paid) + getTableCol(balance) +
-				getTableCol(dueDate) + showStatusButton() + showStateButton() + showEditButton() +  showDeleteButton()
-				;
-		return "<tr>" + row + "</tr>";
-	}
-	function getTableCol(data) {
-		return "<td>" + data + "</td>";
-	}
-
-
-	function showStatusButton(){
-		var btn = "<td><label class=\"label label-unpaid\">unpaid</label></td>";
-			return btn;
-	}
-	function showStateButton(){
-		var btn = "<td><label class=\"label label-paid\">seen</label></td>";
-			return btn;
-	}
-	function showEditButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\"><i class=\"fa fa-edit\"></i>Edit</button></td>";
-			return btn;
-	}
-	function showDeleteButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-danger solsoConfirm\" data-toggle=\"modal\" data-target=\"#solsoDeleteModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1\"><i class=\"fa fa-trash\"></i> Delete</button></td>";
-			return btn;
-	}
-
-
-
-	</script>
 
 </body></html>
