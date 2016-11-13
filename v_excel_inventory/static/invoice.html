@@ -650,9 +650,9 @@
 					dataType : 'json',
 					success : function(data) {
 						var rows = "";
-						for (var i = 0; i < items.length; i++) {
-							var name = items[i].name;
-							var id = items[i].id;
+						for (var i = 0; i < data.length; i++) {
+							var name = data[i].name;
+							var id = data[i].id;
 							rows += "<option value=\"" + id + "\">"+ name +  "</option>";
 						}
 						$("#client_id").append(rows);
