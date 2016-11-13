@@ -17,10 +17,11 @@ class MasterWorkableSerializer(serializers.ModelSerializer):
 
 
 class MasterServiceSerializer(serializers.ModelSerializer):
+    workable_set = MasterWorkableSerializer(read_only=True, many=True)
 
     class Meta:
         model = MasterService
-        fields = "__all__"
+        fields = ('workable_set', 'label', 'price', 'tax')
 
 
 class MasterProductSerializer(serializers.ModelSerializer):
