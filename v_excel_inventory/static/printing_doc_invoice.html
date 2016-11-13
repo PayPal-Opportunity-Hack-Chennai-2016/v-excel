@@ -936,5 +936,67 @@
 		});		
 		/* === END ELEMENTS ===  */
 	</script>
+
+	<script type="text/javascript">
+	//var invoiceListUrl = "https://v-excel-inventory.herokuapp.com/api/invoice";
+	var invoiceListUrl = "invoice_print_doc.json"
+
+	$.ajax({
+		url : invoiceListUrl,
+		type : 'get',
+		dataType : 'json',
+		success : function(data) {
+			populateInvoiceTable(data);
+		}
+	});
+	function populateInvoiceTable(data) {
+		var tableId = "DataTables_Table_4";
+		var rows = "";
+		for (var i = 0; i < data.length; i++) {
+			rows += getTableRow(data[i]);
+		}
+		$("#" + tableId).append(rows);
+	}
+	function getTableRow(data) {
+		var id = data.id;
+		var customerName = data.customer;
+		var product = data.product;
+		var quantity = data.quantity;
+		var amount = data.amount;
+		var paid = data.paid;
+		var balance = data.amount - data.paid;
+		var dueDate = data.dueDate;
+		var status = data.status;
+		var state = data.state;
+		
+		var row = getTableCol(id) + getTableCol(customerName) + getTableCol(product)
+				+ getTableCol(quantity) + getTableCol(amount) + getTableCol(paid) + getTableCol(dueDate) + showStatusButton() + showStateButton() + showEditButton() +  showDeleteButton()
+				;
+		return "<tr>" + row + "</tr>";
+	}
+	function getTableCol(data) {
+		return "<td>" + data + "</td>";
+	}
+
+
+	function showStatusButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+			return btn;
+	}
+	function showStateButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+			return btn;
+	}
+	function showEditButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+			return btn;
+	}
+	function showDeleteButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+			return btn;
+	}
+
+
+	</script>
 	<!-- === END SOLUTII SOFT === -->
 	</body></html>
