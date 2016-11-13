@@ -16,11 +16,13 @@ from service_and_process.serializers import MasterWorkableSerializer
 class MasterWorkableViewset(viewsets.ModelViewSet):
     queryset = MasterWorkable.objects.all()
     serializer_class = MasterWorkableSerializer
+    filter_fields = ('category', 'label')
 
 
 class MasterServiceViewset(viewsets.ModelViewSet):
     queryset = MasterService.objects.all()
     serializer_class = MasterServiceSerializer
+    filter_fields = ('workable__id', 'workable__category', 'workable__label', 'label', 'price', 'tax')
 
 
 class MasterProductViewset(viewsets.ModelViewSet):

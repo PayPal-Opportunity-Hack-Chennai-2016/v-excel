@@ -6,7 +6,7 @@ from service_and_process.models import MasterService, MasterProduct, MasterProce
 
 class Order(models.Model):
     amount = models.DecimalField(max_digits=7, decimal_places=2)
-    customer_id = models.ForeignKey(Customer)
+    customer = models.ForeignKey(Customer)
     expected_timestamp = models.DateTimeField()
     completed_timestamp = models.DateTimeField()
 
@@ -30,13 +30,16 @@ class MasterTag(models.Model):
 class Item(models.Model):
     """Can either be service or product"""
 
-    service = models.ForeignKey(MasterService, null=True)
-    product = models.ForeignKey(MasterProduct, null=True)
+    service = models.ForeignKey(MasterService, blank=True, null=True)
+    product = models.ForeignKey(MasterProduct, blank=True, null=True)
     order = models.ForeignKey(Order)
     tag_id = models.ForeignKey(MasterTag)
 
     def __str__(self):
-        return "{}. {}".format(self.id, self.service.label)
+        try:
+            return "{}. {}".format(self.id, self.service.label)
+        except:
+            return "{}. {}".format(self.id, self.product.label)
 
 
 class MasterRawMaterial(models.Model):
@@ -96,14 +99,14 @@ class Task(models.Model):
     is_success = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{}. {}".format(self.id, self.user.user.username)
+        return "{}. {} - {}".format(self.id, self.user.user.username, self.process.label)
 
 
 class Production(models.Model):
     PRODUCTION_CHOICE = ((1, 'Training'),
                          (2, 'Actual'))
 
-    item = models.ForeignKey(Item)
+    # item = models.ForeignKey(Item, null=True)
     product = models.ForeignKey(MasterProduct)
     entry_timestamp = models.DateTimeField(auto_now_add=True)
     expected_quantity = models.IntegerField()

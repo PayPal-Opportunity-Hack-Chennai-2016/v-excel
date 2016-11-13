@@ -1,0 +1,13 @@
+#addInvoice th{
+	width: 15%;
+	text-align:left;
+}
+
+#addInvoice th:first-child{
+	width: 5%;
+}
+
+#addInvoice td:nth-child(7){
+	text-align: left;
+	float:left;
+}

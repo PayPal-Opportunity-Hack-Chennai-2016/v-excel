@@ -117,22 +117,36 @@
 			<div id="DataTables_Table_4_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 				<div class="row"><div class="col-sm-12"><table class="table solsoTable dataTable no-footer" data-alert="1" id="DataTables_Table_4" role="grid" aria-describedby="DataTables_Table_4_info">
 	<thead>
-		<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+		<tr role="row"><th id="crt" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
 		Crt.: activate to sort column descending" style="width: 28px;">
-		Crt.</th><th class="col-md-1 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Invoice: activate to sort column ascending" style="width: 67px;">Invoice</th><th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="
+		Crt.</th><th class="col-md-1 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Invoice: activate to sort column ascending" style="width: 67px;" id="invoice">Invoice</th><th class="col-md-2 sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="
 									Client
-							: activate to sort column ascending" style="width: 107px;">
+							: activate to sort column ascending" style="width: 107px;" id="customer">
 									Customer
 							</th>
-							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;">Product</th>
+							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;" id="product">Product</th>
 
-							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;">Quantity</th>
+							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;"
+							id="quantity">Quantity</th>
 
-							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;">Amount</th>
+							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 70px;"
+							id="Amount">Amount</th>
 
-							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="paid: activate to sort column ascending" style="width: 55px;">paid</th>
+							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="paid: activate to sort column ascending" style="width: 55px;"
+							id="paid">paid</th>
 
-							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Balance: activate to sort column ascending" style="width: 72px;">Balance</th><th class="col-md-1 text-center sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Due date: activate to sort column ascending" style="width: 57px;">Due date</th><th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 60px;">Status</th><th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="State: activate to sort column ascending" style="width: 46px;">State</th><th class="xs-small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 75px;">Action</th><th class="xs-small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 50px;">Action</th></tr>
+							<th class="col-md-1 text-left sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Balance: activate to sort column ascending" style="width: 72px;"
+							id="balance">Balance</th>
+
+							<th class="col-md-1 text-center sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Due date: activate to sort column ascending" style="width: 57px;"
+							id="due_date">Due date</th>
+
+							<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 60px;"
+							id="status">Status</th>
+
+							<th class="small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="State: activate to sort column ascending" style="width: 46px;" id="state">State</th>
+
+							<th class="xs-small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 75px;" id="edit">Action</th><th class="xs-small sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 50px;" id="delete">Action</th></tr>
 	</thead>
 
 	<tbody>
@@ -159,15 +173,15 @@
 			</td>
 
 			<td class="text-left">
-				$ 110.00
+			    110.00
 			</td>	
 			
 			<td class="text-left">
-				$ 0.00
+				0.00
 			</td>						
 			
 			<td class="text-right">
-				$ 
+				
 				
 									- 110
 								
@@ -185,14 +199,8 @@
 			</td>						
 			
 			<td>
-									<label class="label label-paid">seen</label>
-							</td>			
-			
-							
-
-				
-						
-			
+				<label class="label label-paid">seen</label>
+			</td>			
 			
 					<td>		
 					<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="http://solutiisoft.com/inventory-system/invoice/1/edit" data-modal-title="Show invoice">
@@ -231,8 +239,6 @@
 				<button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
 				<button type="submit" class="btn btn-danger pull-right">YES</button>
 					
-									
-
         </div>
     </div>
 </div>
@@ -401,17 +407,17 @@
 	</div>
 </main>
 
-<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/js/jquery.js"></script>
-<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/jquery.js"></script>
+<script type="text/javascript" src="assets/bootstrap.min.js"></script>
 
 	<!-- PARSLEY VALIDATION -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/parsley/parsley.js"></script>
+	<script type="text/javascript" src="assets/parsley.js"></script>
 	<!-- END PARSLEY VALIDATION -->
 	
 	
 	<!-- DATA TABLES -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/datatables/datatables.min.js"></script>  
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/datatables/datatables-bootstrap.js"></script>    
+	<script type="text/javascript" src="assets/datatables.min.js"></script>  
+	<script type="text/javascript" src="assets/datatables-bootstrap.js"></script>    
 	<script>
 		$('.solsoTable').dataTable();
 	</script>
@@ -419,8 +425,8 @@
 
 
 	<!-- CKEDITOR -->
-    <script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/ckeditor/ckeditor.js"></script>
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/ckeditor/adapters/jquery.js"></script>
+    <script type="text/javascript" src="assets/ckeditor.js"></script>
+	<script type="text/javascript" src="assets/jquery.js"></script>
 	<script>
 	function solsoShowEditor() {
 		UPLOADCARE_PUBLIC_KEY = "demopublickey";
@@ -439,8 +445,8 @@
 	
 	
 	<!-- RENDRO EASY PIE CHART -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/rendro-easy-pie-chart/dist/jquery.easing.min.js"></script>
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+	<script type="text/javascript" src="assets/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="assets/jquery.easypiechart.min.js"></script>
 	<script>
 		$('.chart').easyPieChart({
 			easing: 'easeOutBounce',
@@ -452,7 +458,7 @@
 	<!-- END RENDRO EASY PIE CHART -->
 	
 	<!-- CHART.JS -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/chart.js/chart.min.js"></script>
+	<script type="text/javascript" src="assets/chart.min.js"></script>
 	<script>
 	
 		
@@ -491,7 +497,7 @@
 	
 	
 	<!-- DATEPICKER -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/datepicker/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="assets/bootstrap-datepicker.js"></script>
 	<script>	
 	function showDatePicker() {
 		var startDate 	= '';
@@ -521,7 +527,7 @@
 	
 	
 	<!-- TIMEPICKER -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap-timepicker.min.js"></script>
 	<script>	
 		$('.timepicker').timepicker();		
 	</script>		
@@ -537,7 +543,7 @@
 	
 	
 	<!-- BOOTSTRAP FILEINPUT -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/vendor/bootstrap-fileinput/js/fileinput.min.js"></script>
+	<script type="text/javascript" src="assets/fileinput.min.js"></script>
 	<script>
 	function solsoUpload() {	
 		$(".solsoFileInput").fileinput({
@@ -554,7 +560,7 @@
 	
 
 	<!-- GROWL -->
-	<script type="text/javascript" src="http://solutiisoft.com/inventory-system/public/js/jquery.growl.js"></script>  
+	<script type="text/javascript" src="assets/jquery.growl.js"></script>  
 	<!-- END GROWL-->		
 	
 	
@@ -943,6 +949,70 @@
 		   }
 		});		
 		/* === END ELEMENTS ===  */
+	</script>
+
+	<script type="text/javascript">
+	//var invoiceListUrl = "https://v-excel-inventory.herokuapp.com/api/invoice";
+	var invoiceListUrl = "invoice_print_doc.json"
+
+	$.ajax({
+		url : invoiceListUrl,
+		type : 'get',
+		dataType : 'json',
+		success : function(data) {
+			populateInvoiceTable(data);
+		}
+	});
+	function populateInvoiceTable(data) {
+		var tableId = "DataTables_Table_4";
+		var rows = "";
+		for (var i = 0; i < data.length; i++) {
+			rows += getTableRow(data[i],i);
+		}
+		$("#" + tableId).append(rows);
+	}
+	function getTableRow(data,i) {
+		var crt = i;
+		var id = data.invoice_id;
+		var customerName = data.customer;
+		var product = data.product;
+		var quantity = data.Quantity;
+		var amount = data.Amount;
+		var paid = data.paid;
+		var balance = parseInt(data.amount) - parseInt(data.paid);
+		var dueDate = data.due_date;
+	
+		
+		var row = getTableCol(crt) + getTableCol(id) +getTableCol(customerName) + getTableCol(product)
+				+ getTableCol(quantity) + getTableCol(amount) + getTableCol(paid) + getTableCol(balance) +
+				getTableCol(dueDate) + showStatusButton() + showStateButton() + showEditButton() +  showDeleteButton()
+				;
+		return "<tr>" + row + "</tr>";
+	}
+	function getTableCol(data) {
+		return "<td>" + data + "</td>";
+	}
+
+
+	function showStatusButton(){
+		var btn = "<td><label class=\"label label-unpaid\">unpaid</label></td>";
+			return btn;
+	}
+	function showStateButton(){
+		var btn = "<td><label class=\"label label-paid\">seen</label></td>";
+			return btn;
+	}
+	function showEditButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\"><i class=\"fa fa-edit\"></i>Edit</button></td>";
+			return btn;
+	}
+	function showDeleteButton(cid){
+		var btn = "<td><button type=\"button\" class=\"btn btn-danger solsoConfirm\" data-toggle=\"modal\" data-target=\"#solsoDeleteModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1\"><i class=\"fa fa-trash\"></i> Delete</button></td>";
+			return btn;
+	}
+
+
+
 	</script>
 	<!-- === END SOLUTII SOFT === -->
 	</body></html>
