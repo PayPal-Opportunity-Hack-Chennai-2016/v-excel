@@ -6,7 +6,7 @@ from service_and_process.models import MasterService, MasterProduct, MasterProce
 
 class Order(models.Model):
     amount = models.DecimalField(max_digits=7, decimal_places=2)
-    customer_id = models.ForeignKey(Customer)
+    customer = models.ForeignKey(Customer)
     expected_timestamp = models.DateTimeField()
     completed_timestamp = models.DateTimeField()
 
