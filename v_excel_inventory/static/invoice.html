@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/perfect-scrollbar.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="./css/design.css">
+	<link rel="stylesheet" type="text/css" href="./css/invoice.css">
 	<!-- END CSS -->	
 	
 	<script async="" src="./js/analytics.js"></script><script>
@@ -255,12 +256,14 @@
 			
 	<div class="clearfix"></div>	
 	
-	<div class="table-responsive col-md-12">
+	<div id="addInvoice" class="table-responsive col-md-12">
 		<table class="table">
 		<thead>
 			<tr>
 				<th>Crt.</th>
 				<th class="td-product">Product</th>
+				<th class="td-info">Gender</th>
+				<th class="td-info">Service</th>
 				<th class="td-info">Price</th>
 				<th class="td-info">Quantity</th>
 				<th class="td-info">Total Price</th>
@@ -286,6 +289,23 @@
 					</select>				
 				</td>
 				
+				<td>
+					<select name="products[]" class="form-control required solsoSelect2 solsoCloneSelect2">
+						<option value="" selected="">choose</option>
+						
+													<option value="1"> Male  </option>
+													<option value="2"> Female  </option>
+					</select>				
+				</td>
+				<td>
+					<select name="products[]" class="form-control required solsoSelect2 solsoCloneSelect2">
+						<option value="" selected="">choose</option>
+						
+													<option value="1"> Dry Wash  </option>
+													<option value="2"> Iron  </option>
+													<option value="2"> Regular Wash  </option>
+					</select>				
+				</td>
 				<td>
 					<input type="text" name="price[]" class="form-control required solsoEvent" autocomplete="off">
 				</td>
