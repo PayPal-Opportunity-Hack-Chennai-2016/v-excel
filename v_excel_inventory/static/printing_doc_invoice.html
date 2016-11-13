@@ -173,15 +173,15 @@
 			</td>
 
 			<td class="text-left">
-				$ 110.00
+			    110.00
 			</td>	
 			
 			<td class="text-left">
-				$ 0.00
+				0.00
 			</td>						
 			
 			<td class="text-right">
-				$ 
+				
 				
 									- 110
 								
@@ -979,7 +979,7 @@
 		var quantity = data.Quantity;
 		var amount = data.Amount;
 		var paid = data.paid;
-		var balance = data.amount - data.paid;
+		var balance = parseInt("data.amount") - parseInt("data.paid");
 		var dueDate = data.due_date;
 	
 		
@@ -994,12 +994,12 @@
 	}
 
 
-	function showStatusButton(cid){
-		var btn = "<label class=\"label label-unpaid\">unpaid</label>";
+	function showStatusButton(){
+		var btn = "<td><label class=\"label label-unpaid\">unpaid</label></td>";
 			return btn;
 	}
-	function showStateButton(cid){
-		var btn = "<label class=\"label label-seen\">seen</label>";
+	function showStateButton(){
+		var btn = "<td><label class=\"label label-seen\">seen</label></td>";
 			return btn;
 	}
 	function showEditButton(cid){
