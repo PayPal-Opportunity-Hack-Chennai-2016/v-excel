@@ -16,6 +16,7 @@ from service_and_process.serializers import MasterWorkableSerializer
 class MasterWorkableViewset(viewsets.ModelViewSet):
     queryset = MasterWorkable.objects.all()
     serializer_class = MasterWorkableSerializer
+    filter_fields = ('category', 'label')
 
 
 class MasterServiceViewset(viewsets.ModelViewSet):
