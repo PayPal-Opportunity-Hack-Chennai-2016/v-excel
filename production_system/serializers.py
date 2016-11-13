@@ -29,11 +29,11 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     item_set = ItemSerializer(many=True, read_only=True)
-    # customer_id = CustomerSerializer(read_only=True)
+    customer = CustomerSerializer()
 
     class Meta:
         model = Order
-        fields = ('item_set', 'id', 'amount', 'customer_id', 'expected_timestamp', 'completed_timestamp')
+        fields = ('item_set', 'id', 'amount', 'customer', 'expected_timestamp', 'completed_timestamp')
 
 
 class InventorySerializer(serializers.ModelSerializer):
