@@ -17,11 +17,29 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 
-from service_and_process.views import MasterWorkableViewset
+from people.views import CustomerViewset, InternalUserViewset
+from production_system.views import TaskViewset, OrderViewset, ItemViewset, InventoryViewset, PurchaseViewset, \
+    ProductionViewset, ProductInventoryViewset, RawMaterialViewset, TagViewset
+from service_and_process.views import MasterWorkableViewset, MasterProcessViewset, MasterProductViewset, MasterServiceViewset
+from webapp.views import index, CustomerList, ServicesList
 
 router = routers.DefaultRouter()
-router.register(r'workable', MasterWorkableViewset)
 
+router.register(r'workable', MasterWorkableViewset)
+router.register(r'customers', CustomerViewset)
+router.register(r'users', InternalUserViewset)
+router.register(r'tasks', TaskViewset)
+router.register(r'services', MasterServiceViewset)
+router.register(r'process', MasterProcessViewset)
+router.register(r'products', MasterProductViewset)
+router.register(r'orders', OrderViewset)
+router.register(r'items', ItemViewset)
+router.register(r'inventory', InventoryViewset)
+router.register(r'purchase', PurchaseViewset)
+router.register(r'production', ProductionViewset)
+router.register(r'product_inventory', ProductInventoryViewset)
+router.register(r'material', RawMaterialViewset)
+router.register(r'tags', TagViewset)
 
 api_urls = [
     url(r'^', include(router.urls))
@@ -30,6 +48,9 @@ api_urls = [
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^index/', index),
     url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^customers_list', CustomerList.as_view()),
+    url(r'^services_list', ServicesList.as_view())
 ]
