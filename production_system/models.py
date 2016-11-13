@@ -36,7 +36,10 @@ class Item(models.Model):
     tag_id = models.ForeignKey(MasterTag)
 
     def __str__(self):
-        return "{}. {}".format(self.id, self.service.label)
+        if self.service:
+            return "{}. {}".format(self.id, self.service.label)
+        elif self.product:
+            return "{}. {}".format(self.id, self.product.label)
 
 
 class MasterRawMaterial(models.Model):
