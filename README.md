@@ -6,9 +6,9 @@ Inventory Management System
  Megha 
  Niraja
  Abhay
- Anurag
- Choppar
- Gunjan
+ Anurag,
+ Chokkar Gurusamy
+ Gunjan,
  Vishnu G
  Yogi
  Karthikeya
