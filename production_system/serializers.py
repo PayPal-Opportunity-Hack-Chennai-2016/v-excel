@@ -2,6 +2,7 @@ import json
 
 from rest_framework import serializers
 
+from people.serializers import CustomerSerializer
 from production_system.models import Task
 from production_system.models import Order
 from production_system.models import Item
@@ -28,6 +29,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     item_set = ItemSerializer(many=True, read_only=True)
+    # customer_id = CustomerSerializer(read_only=True)
 
     class Meta:
         model = Order
