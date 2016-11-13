@@ -12,6 +12,7 @@ from production_system.models import Production
 from production_system.models import ProductInventory
 from production_system.models import MasterRawMaterial
 from production_system.models import MasterTag
+from service_and_process.serializers import MasterServiceSerializer, MasterProductSerializer
 from v_excel_inventory.lib.base_serializers import DynamicFieldsModelSerializer
 
 
@@ -22,6 +23,9 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
+
+    service = MasterServiceSerializer(read_only=True)
+    product = MasterProductSerializer(read_only=True)
 
     class Meta:
         model = Item
