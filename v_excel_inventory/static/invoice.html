@@ -895,7 +895,7 @@
 		</script>
 <script type="text/javascript">
 	//var invoiceListUrl = "https://v-excel-inventory.herokuapp.com/api/invoice";
-	var invoiceListUrl = "invoice_print_doc.json"
+	var invoiceListUrl = "invoice_lau.json"
 
 	$.ajax({
 		url : invoiceListUrl,
@@ -921,7 +921,7 @@
 		var quantity = data.Quantity;
 		var amount = data.Amount;
 		var paid = data.paid;
-		var balance = parseInt(parseInt("data.amount") - parseInt("data.paid"));
+		var balance = parseInt(parseInt(data.amount) - parseInt(data.paid));
 		var dueDate = data.due_date;
 	
 		
