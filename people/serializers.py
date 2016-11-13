@@ -3,10 +3,11 @@ from rest_framework import serializers
 
 from people.models import Customer
 from people.models import InternalUser
+from production_system.serializers import OrderSerializer
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-    # phone_number = serializers.BiIntegerField()
+    order_set = OrderSerializer(many=True, exclude_fields=('customer', ))
 
     def validate_phone_number(self, val):
         if len(str(val)) != 10:
