@@ -30,6 +30,15 @@ class TaskViewset(viewsets.ModelViewSet):
 class OrderViewset(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    filter_fields = ('customer__id',
+                     'customer__name',
+                     'expected_timestamp',
+                     'completed_timestamp',
+                     'amount__ge',
+                     'amount__le',
+                     'amount',
+                     'item_set__product__id',
+                     'item_set__workable__id')
 
 
 class ItemViewset(viewsets.ModelViewSet):
