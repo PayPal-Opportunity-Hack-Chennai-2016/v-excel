@@ -13,7 +13,7 @@ class MasterWorkableSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MasterWorkable
-        fields = '__all__'
+        fields = ('id', 'label', 'category', 'attribute')
 
 
 class MasterServiceSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class MasterServiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MasterService
-        fields = ('workable_set', 'label', 'price', 'tax')
+        fields = ('workable_set', 'label', 'price', 'tax', 'id')
 
 
 class MasterProductSerializer(serializers.ModelSerializer):
