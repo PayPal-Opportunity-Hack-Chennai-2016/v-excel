@@ -30,6 +30,9 @@ class TaskViewset(viewsets.ModelViewSet):
 class OrderViewset(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    filter_fields = ('expected_timestamp',
+                     'completed_timestamp',
+                     'amount')
 
 
 class ItemViewset(viewsets.ModelViewSet):
