@@ -10,76 +10,58 @@ from production_system.models import ProductInventory
 from production_system.models import MasterRawMaterial
 from production_system.models import MasterTag
 
-class TaskSerializer(serializers.ModelSerializer):
 
+class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = '__all__'
 
+
 class ItemSerializer(serializers.ModelSerializer):
-
-
-
     class Meta:
         model = Item
         fields = '__all__'
 
+
 class OrderSerializer(serializers.ModelSerializer):
+    item = ItemSerializer(many=True, read_only=True)
 
     class Meta:
         model = Order
-        fields = '__all__'
-
-
-class InvoiceSerializer(serializers.ModelSerializer):
-
-    items = ItemSerializer(many = True)
-
-    class Meta:
-        model = Order
-        fields = '__all__'
+        fields = ('item', 'id', 'amount', 'customer_id', 'expected_timestamp', 'completed_timestamp')
 
 
 class InventorySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Inventory
         fields = '__all__'
 
 
 class PurchaseSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Purchase
         fields = '__all__'
 
 
 class ProductionSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Production
         fields = '__all__'
 
-class ProductInventorySerializer(serializers.ModelSerializer):
 
+class ProductInventorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductInventory
         fields = '__all__'
 
-class RawMaterialSerializer(serializers.ModelSerializer):
 
+class RawMaterialSerializer(serializers.ModelSerializer):
     class Meta:
         model = MasterRawMaterial
         fields = '__all__'
 
+
 class TagSerializer(serializers.ModelSerializer):
-
     class Meta:
-        model =  MasterTag
+        model = MasterTag
         fields = '__all__'
-
-
-# class InvoicesSerializer(serializers.ModelSerializer):
-#         serializer_class =
-#         # read about pagination in order to split this into pages
-#         queryset = Article.objects.all().prefetch_related('locations')[:10]

@@ -5,7 +5,6 @@ from service_and_process.models import MasterService, MasterProduct, MasterProce
 
 
 class Order(models.Model):
-
     amount = models.DecimalField(max_digits=7, decimal_places=2)
     customer_id = models.ForeignKey(Customer)
     expected_timestamp = models.DateTimeField()
@@ -13,10 +12,11 @@ class Order(models.Model):
 
     def __str__(self):
         return "{}".format(self.id)
-    # calculate tax in the invoice
+        # calculate tax in the invoice
 
-    # def __str__(self):
-    #     return "{}. {}".format(self.id, self.amount)
+        # def __str__(self):
+        #     return "{}. {}".format(self.id, self.amount)
+
 
 class MasterTag(models.Model):
     CHOICE = ((1, 'In Use'),
@@ -25,6 +25,7 @@ class MasterTag(models.Model):
 
     def __str__(self):
         return "{}. {}".format(self.id, self.status)
+
 
 class Item(models.Model):
     """Can either be service or product"""
@@ -37,8 +38,8 @@ class Item(models.Model):
     def __str__(self):
         return "{}. {}".format(self.id, self.service.label)
 
-class MasterRawMaterial(models.Model):
 
+class MasterRawMaterial(models.Model):
     CHOICES = ((1, 'piece'),
                (2, 'kg'))
 
@@ -46,7 +47,8 @@ class MasterRawMaterial(models.Model):
     unit = models.IntegerField(choices=CHOICES)
 
     def __str__(self):
-        return "{}. {}".format( self.id, self.label)
+        return "{}. {}".format(self.id, self.label)
+
 
 class Inventory(models.Model):
     """Raw materials in purchase"""
@@ -58,6 +60,7 @@ class Inventory(models.Model):
 
     def __str__(self):
         return "{}. {}".format(self.id, self.raw_material.label)
+
 
 class Purchase(models.Model):
     """Get materials from vendor"""
@@ -71,14 +74,15 @@ class Purchase(models.Model):
     def __str__(self):
         return "{}. {}. {}".format(self.id, self.raw_material.label, self.vendor)
 
-class MappingProductMaterial(models.Model):
 
+class MappingProductMaterial(models.Model):
     product = models.ForeignKey(MasterProduct)
     raw_material = models.ForeignKey(MasterRawMaterial)
     quantity = models.IntegerField()
 
     def __str__(self):
         return "{}. {}".format(self.id, self.product.label)
+
 
 class Task(models.Model):
     """User is ironing"""
@@ -94,6 +98,7 @@ class Task(models.Model):
     def __str__(self):
         return "{}. {}".format(self.id, self.user.user.username)
 
+
 class Production(models.Model):
     PRODUCTION_CHOICE = ((1, 'Training'),
                          (2, 'Actual'))
@@ -104,10 +109,12 @@ class Production(models.Model):
     expected_quantity = models.IntegerField()
     output_quantity = models.IntegerField(null=True)
     production_type = models.IntegerField(choices=PRODUCTION_CHOICE)
+
     # batch
 
     def __str__(self):
         return "{}. {}".format(self.id, self.production_type)
+
 
 class ProductInventory(models.Model):
     """Holds the current state of the product (cookies, chocolates) Inventory"""
@@ -119,8 +126,8 @@ class ProductInventory(models.Model):
     def __str__(self):
         return "{}. {}".format(self.id, self.product.label)
 
-class MappingTrainerTraineeTask(models.Model):
 
+class MappingTrainerTraineeTask(models.Model):
     task_id = models.ForeignKey('production_system.Task')
     trainer = models.ForeignKey(InternalUser, related_name='trainer')
     trainee = models.ForeignKey(InternalUser, related_name='trainee')
