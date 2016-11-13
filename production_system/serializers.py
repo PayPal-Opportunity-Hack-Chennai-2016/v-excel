@@ -1,3 +1,5 @@
+import json
+
 from rest_framework import serializers
 
 from production_system.models import Task
@@ -18,17 +20,18 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Item
         fields = '__all__'
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    item = ItemSerializer(many=True, read_only=True)
+    item_set = ItemSerializer(many=True, read_only=True)
 
     class Meta:
         model = Order
-        fields = ('item', 'id', 'amount', 'customer_id', 'expected_timestamp', 'completed_timestamp')
+        fields = ('item_set', 'id', 'amount', 'customer_id', 'expected_timestamp', 'completed_timestamp')
 
 
 class InventorySerializer(serializers.ModelSerializer):
