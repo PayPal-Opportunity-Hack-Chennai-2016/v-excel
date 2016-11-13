@@ -30,13 +30,16 @@ class MasterTag(models.Model):
 class Item(models.Model):
     """Can either be service or product"""
 
-    service = models.ForeignKey(MasterService, null=True)
-    product = models.ForeignKey(MasterProduct, null=True)
+    service = models.ForeignKey(MasterService, blank=True, null=True)
+    product = models.ForeignKey(MasterProduct, blank=True, null=True)
     order = models.ForeignKey(Order)
     tag_id = models.ForeignKey(MasterTag)
 
     def __str__(self):
-        return "{}. {}".format(self.id, self.service.label)
+        if self.service:
+            return "{}. {}".format(self.id, self.service.label)
+        elif self.product:
+            return "{}. {}".format(self.id, self.product.label)
 
 
 class MasterRawMaterial(models.Model):
@@ -96,7 +99,7 @@ class Task(models.Model):
     is_success = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{}. {}".format(self.id, self.user.user.username)
+        return "{}. {} - {}".format(self.id, self.user.user.username, self.process.label)
 
 
 class Production(models.Model):
