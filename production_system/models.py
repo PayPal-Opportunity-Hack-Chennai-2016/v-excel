@@ -36,9 +36,9 @@ class Item(models.Model):
     tag_id = models.ForeignKey(MasterTag)
 
     def __str__(self):
-        if self.service:
+        try:
             return "{}. {}".format(self.id, self.service.label)
-        elif self.product:
+        except:
             return "{}. {}".format(self.id, self.product.label)
 
 
@@ -106,7 +106,7 @@ class Production(models.Model):
     PRODUCTION_CHOICE = ((1, 'Training'),
                          (2, 'Actual'))
 
-    item = models.ForeignKey(Item)
+    # item = models.ForeignKey(Item, null=True)
     product = models.ForeignKey(MasterProduct)
     entry_timestamp = models.DateTimeField(auto_now_add=True)
     expected_quantity = models.IntegerField()
