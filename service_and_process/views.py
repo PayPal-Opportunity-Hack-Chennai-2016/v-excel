@@ -22,6 +22,7 @@ class MasterWorkableViewset(viewsets.ModelViewSet):
 class MasterServiceViewset(viewsets.ModelViewSet):
     queryset = MasterService.objects.all()
     serializer_class = MasterServiceSerializer
+    filter_fields = ('workable__id', 'workable__category', 'workable__label', 'label', 'price', 'tax')
 
 
 class MasterProductViewset(viewsets.ModelViewSet):
