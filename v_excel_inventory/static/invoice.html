@@ -921,32 +921,4 @@
 
 	</script>
 
-	<script type="text/javascript">
-	
-    $(document).on('click', '#createClone', function(e) {
-      $( '.solsoSelect2.solsoCloneSelect2').select2('destroy');
-      
-      $( '.solsoParent' )
-        .append( '<tr>' + $( 'tr.solsoChild' ).html() + '</tr>' );
-    
-      $( '.crt' ).each(function( index ) {
-        $( this ).text(index+1);
-      }); 
-      
-      
-      $("[name='products[]']").last().val('');
-      $("[name='qty[]']").last().val('');
-      $("[name='price[]']").last().val('');
-      $("[name='taxes[]']").last().val('');
-      $("[name='discount[]']").last().val('');
-      
-      $( ".solsoSubTotal" ).last().text('0.00');
-      $( '.solsoCloneSelect2' ).select2();
-
-      return false;
-    });
-
-	</script>
-	
-
 </body></html>
