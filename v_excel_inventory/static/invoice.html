@@ -909,24 +909,25 @@
 		var tableId = "DataTables_Table_4";
 		var rows = "";
 		for (var i = 0; i < data.length; i++) {
-			rows += getTableRow(data[i]);
+			rows += getTableRow(data[i],i);
 		}
 		$("#" + tableId).append(rows);
 	}
-	function getTableRow(data) {
-		var id = data.id;
+	function getTableRow(data,i) {
+		var crt = i;
+		var id = data.invoice_id;
 		var customerName = data.customer;
 		var product = data.product;
-		var quantity = data.quantity;
-		var amount = data.amount;
+		var quantity = data.Quantity;
+		var amount = data.Amount;
 		var paid = data.paid;
-		var balance = data.amount - data.paid;
-		var dueDate = data.dueDate;
-		var status = data.status;
-		var state = data.state;
+		var balance = parseInt(parseInt("data.amount") - parseInt("data.paid"));
+		var dueDate = data.due_date;
+	
 		
-		var row = getTableCol(id) + getTableCol(customerName) + getTableCol(product)
-				+ getTableCol(quantity) + getTableCol(amount) + getTableCol(paid) + getTableCol(dueDate) + showStatusButton() + showStateButton() + showEditButton() +  showDeleteButton()
+		var row = getTableCol(crt) + getTableCol(id) +getTableCol(customerName) + getTableCol(product)
+				+ getTableCol(quantity) + getTableCol(amount) + getTableCol(paid) + getTableCol(balance) +
+				getTableCol(dueDate) + showStatusButton() + showStateButton() + showEditButton() +  showDeleteButton()
 				;
 		return "<tr>" + row + "</tr>";
 	}
@@ -935,22 +936,23 @@
 	}
 
 
-	function showStatusButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+	function showStatusButton(){
+		var btn = "<td><label class=\"label label-unpaid\">unpaid</label></td>";
 			return btn;
 	}
-	function showStateButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+	function showStateButton(){
+		var btn = "<td><label class=\"label label-paid\">seen</label></td>";
 			return btn;
 	}
 	function showEditButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\"><i class=\"fa fa-edit\"></i>Edit</button></td>";
 			return btn;
 	}
 	function showDeleteButton(cid){
-		var btn = "<td><button type=\"button\" class=\"btn btn-primary solsoShowModal\" data-toggle=\"modal\" data-target=\"#solsoCrudModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1/edit\" data-modal-title=\"Show invoice\">Show invoice</button></td>";
+		var btn = "<td><button type=\"button\" class=\"btn btn-danger solsoConfirm\" data-toggle=\"modal\" data-target=\"#solsoDeleteModal\" data-href=\"http://solutiisoft.com/inventory-system/invoice/1\"><i class=\"fa fa-trash\"></i> Delete</button></td>";
 			return btn;
 	}
+
 
 
 	</script>
