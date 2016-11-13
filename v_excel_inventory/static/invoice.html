@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/design.css">
 	<!-- END CSS -->	
 	
-	<script async="" src="//www.google-analytics.com/analytics.js"></script><script>
+	<script async="" src="./js/analytics.js"></script><script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -101,7 +101,7 @@
 		Invoices
 		</h1>
 		
-					<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="invoiceCreate.html" data-modal-title="Create new invoice">
+					<button type="button" class="btn btn-primary solsoShowModal" id="createInvoice" data-toggle="modal" data-target="#solsoCrudModal" data-href="invoiceCreate.html" data-modal-title="Create new invoice">
 				<i class="fa fa-plus"></i> Create new invoice
 			</button>
 			</div>	
@@ -214,14 +214,14 @@
 	<div class="form-group col-md-12">
 		<label for="client_id">
 		Client</label>
-		<select name="client_id" class="form-control required solsoSelect2">
+		<select name="client_id" id = "client_id"class="form-control required solsoSelect2">
 			<option value="" selected="">choose</option>
 			
-							<option value="1"> Baane Mini Imports </option>
+							<!--<option value="1"> Baane Mini Imports </option>
 							<option value="2"> American Souvenirs Inc </option>
 							<option value="3"> Vitachrome Inc. </option>
 							<option value="4"> Toys of Finland, Co. </option>
-							<option value="5"> AV Stores, Co. </option>
+							<option value="5"> AV Stores, Co. </option>-->
 						
 			
 		</select>
@@ -374,17 +374,17 @@
 	</div>
 </main>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
 
 	<!-- PARSLEY VALIDATION -->
-	<script type="text/javascript" src="js/parsley.js"></script>
+	<script type="text/javascript" src="./js/parsley.js"></script>
 	<!-- END PARSLEY VALIDATION -->
 	
 	
 	<!-- DATA TABLES -->
-	<script type="text/javascript" src="js/datatables.min.js"></script>  
-	<script type="text/javascript" src="js/datatables-bootstrap.js"></script>    
+	<script type="text/javascript" src="./js/datatables.min.js"></script>  
+	<script type="text/javascript" src="./js/datatables-bootstrap.js"></script>    
 	<script>
 		$('.solsoTable').dataTable();
 	</script>
@@ -392,8 +392,8 @@
 
 
 	<!-- CKEDITOR -->
-    <script type="text/javascript" src="js/ckeditor.js"></script>
-	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="./js/ckeditor.js"></script>
+	<script type="text/javascript" src="./js/jquery.js"></script>
 	<script>
 	function solsoShowEditor() {
 		UPLOADCARE_PUBLIC_KEY = "demopublickey";
@@ -412,8 +412,8 @@
 	
 	
 	<!-- RENDRO EASY PIE CHART -->
-	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.easypiechart.min.js"></script>
 	<script>
 		$('.chart').easyPieChart({
 			easing: 'easeOutBounce',
@@ -425,7 +425,7 @@
 	<!-- END RENDRO EASY PIE CHART -->
 	
 	<!-- CHART.JS -->
-	<script type="text/javascript" src="js/chart.min.js"></script>
+	<script type="text/javascript" src="./js/chart.min.js"></script>
 	<script>
 	
 		
@@ -464,7 +464,7 @@
 	
 	
 	<!-- DATEPICKER -->
-	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
 	<script>	
 	function showDatePicker() {
 		var startDate 	= '';
@@ -494,23 +494,19 @@
 	
 	
 	<!-- TIMEPICKER -->
-	<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-timepicker.min.js"></script>
 	<script>	
 		$('.timepicker').timepicker();		
 	</script>		
 	<!-- END TIMEPICKER -->
 	
 
-	<!-- SELECT 2 -->
-	<script type="text/javascript" src="js/select2.js"></script>
-	<script>	
-		$('.select2').select2();		
-	</script>	
+	
 	<!-- END SELECT 2 -->
 	
 	
 	<!-- BOOTSTRAP FILEINPUT -->
-	<script type="text/javascript" src="js/fileinput.min.js"></script>
+	<script type="text/javascript" src="./js/fileinput.min.js"></script>
 	<script>
 	function solsoUpload() {	
 		$(".solsoFileInput").fileinput({
@@ -527,21 +523,8 @@
 	
 
 	<!-- GROWL -->
-	<script type="text/javascript" src="js/jquery.growl.js"></script>  
+	<script type="text/javascript" src="./js/jquery.growl.js"></script>  
 	<!-- END GROWL-->		
-	
-	
-	<!-- PERFECT-SCROLLBAR -->	
-	<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
-	<script>	
-		menuSidebarHeight = $('#solso-sidebar').height() + 50;
-		sideBarHeight	  = $('.sidebar').height();
-
-		if ( menuSidebarHeight >= sideBarHeight )	{
-			$('.perfectScrollbar').perfectScrollbar();
-		}	
-	</script>	
-	<!-- END PERFECT-SCROLLBAR -->		
 	
 	
 	<!-- === SOLUTII SOFT === -->
@@ -630,6 +613,9 @@
 
 
 		$( document ).on('click', '.solsoShowModal', function(){
+			
+			updateCustomer();
+			
 			modalTitle = $(this).attr('data-modal-title')
 
 			$.ajax({
@@ -653,6 +639,26 @@
 				}
 			});		
 		});
+		
+		function updateCustomer(){
+				
+				var customerListUrl = "https://v-excel-inventory.herokuapp.com/api/customers/";
+				
+				$.ajax({
+					url : customerListUrl,
+					type : 'get',
+					dataType : 'json',
+					success : function(data) {
+						var rows = "";
+						for (var i = 0; i < items.length; i++) {
+							var name = items[i].name;
+							var id = items[i].id;
+							rows += "<option value=\"" + id + "\">"+ name +  "</option>";
+						}
+						$("#client_id").append(rows);
+					}
+				});
+		}
 		
 		$( document ).on('click', '.solsoSave', function(e){
 			e.preventDefault();
@@ -866,6 +872,7 @@
 		   }
 		});		
 		/* === END ELEMENTS ===  */
+		</script>
 <script type="text/javascript">
 	//var invoiceListUrl = "https://v-excel-inventory.herokuapp.com/api/invoice";
 	var invoiceListUrl = "invoicelist.json"
