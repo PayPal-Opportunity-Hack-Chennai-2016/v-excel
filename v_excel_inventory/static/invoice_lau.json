@@ -1,0 +1,29 @@
+ 
+{ 
+  "invoice_id" : "123",
+  "customer" : "Megha",
+  "product"  : "shirt",
+  "Quantity" :  "10",
+  "Amount" :  "100",
+  "paid"  : "20",
+  "due_date" : "2016-02-19"
+},
+{ 
+  "invoice_id" : "456",
+  "customer" : "niraja",
+  "product"  : "Towel",
+  "Quantity" :  "10",
+  "Amount" :  "50",
+  "paid"  : "20",
+  "due_date" : "2016-02-25"
+},
+{ 
+  "invoice_id" : "789",
+  "customer" : "Anurag",
+  "product"  : "Bedsheet",
+  "Quantity" :  "10",
+  "Amount" :  "120",
+  "paid"  : "20",
+  "due_date" : "2016-02-30"
+}
+]
